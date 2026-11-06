@@ -1,0 +1,41 @@
+{
+  "A": {
+    "n": "0x4731d82b99bcc2bcb8b47824a0e45d91934ed3d3eb3e1bb64eb10543e754aaae012d273e46b7359bbfd1ee8bd0541d085edbc3ef3b5350216092b99c19afdd09",
+    "e": "0x10001",
+    "d": "0x3a0a54a516ec6005e2be9dc39eb70de1042a9b5e84c5596a42b4e609f9a9788b0e9e15eb07276dd2014ce7d2c4935c046e5c7396bb8df15c9c1f052c362cbc11",
+    "p": "0x852d78b79761d2b37fafad485eeda1d852ae3f0635840ea8a1bef5d3bd9dd9cf",
+    "q": "0x88da8916f12d135c8dccb14f3097069a1eb01b591234ed484e4e35c4342989a7",
+    "n_bits": 511,
+    "phi": "0x4731d82b99bcc2bcb8b47824a0e45d91934ed3d3eb3e1bb64eb10543e754aaacf325256fbe284f8bb2558ff440cf7495ed7d698ff39a543070858e0427e87994"
+  },
+  "B": {
+    "n": "0x640de2569de8712e72e434eb4af0faa72045c6eeb9d7cf7149ddce50bdae3923fc595d441c1c2a5d95a95379262a243b45489e91b2eabfbc544216d466c1758f",
+    "e": "0x10001",
+    "d": "0x17877c56ca43c37a1ce2b5df2f7c8435914d577f048d4fe7606b9cfd37de24e999e36a7c06e4b4bcac0b83d2e957d252bdddd8a55f4be5dd2319e962ae2afae1",
+    "p": "0x90c600cc043b95e0150ac7af9d103d6b0557aa55cac31ec37bc8d4451d509e3d",
+    "q": "0xb0ec85130333a36aafb930fccf26dd0103cd3babfeb950f581ea77f812aa4bbb",
+    "n_bits": 511,
+    "phi": "0x640de2569de8712e72e434eb4af0faa72045c6eeb9d7cf7149ddce50bdae3922baa6d76514acf112d0e55accb9f309cf3c23b88fe96e5003568eca9736c68b98"
+  },
+  "checks_A": {
+    "n = p*q": true,
+    "phi(n) = (p-1)(q-1)": true,
+    "p != q": true,
+    "2 <= e <= phi-1": true,
+    "gcd(e, phi) = 1": true,
+    "e*d mod phi = 1": true,
+    "0 < d < phi": true,
+    "(M^e)^d mod n = M": true
+  },
+  "checks_B": {
+    "n = p*q": true,
+    "phi(n) = (p-1)(q-1)": true,
+    "p != q": true,
+    "2 <= e <= phi-1": true,
+    "gcd(e, phi) = 1": true,
+    "e*d mod phi = 1": true,
+    "0 < d < phi": true,
+    "(M^e)^d mod n = M": true
+  },
+  "n_A <= n_B": true
+}
