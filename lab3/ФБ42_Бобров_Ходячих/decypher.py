@@ -43,14 +43,14 @@ def decrypt(text, a, b):
         out.append(num_to_bigram((ai * (bigram_to_num(text[i:i+2]) - b)) % M2))
     return "".join(out)
 
-FORBIDDEN = ["аь","еь","ыь","ьь","йь","оь","уь","яь","юь","жы","шы","щы","чы","щю","чя","щя","фь","ьы","ьй","йы","йй","ьь"]
+#FORBIDDEN = ["аь","еь","ыь","ьь","йь","оь","уь","яь","юь","жы","шы","щы","чы","щю","чя","щя","фь","ьы","ьй","йы","йй","ьь"]
 COMMON_CHARS = "оеаинтслвр"
 def is_meaningful(t):
-    if any(f in t for f in FORBIDDEN):
-        return False
+#    if any(f in t for f in FORBIDDEN):
+#        return False
 
     match_count = sum(1 for c in t if c in COMMON_CHARS)
-    return (match_count / len(t)) > 0.10
+    return (match_count / len(t)) > 0.60
 
 RU_TOP_BG = ['то', 'ст', 'на', 'ов', 'ал', 'го', 'он', 'не', 'но', 'ко', 'ен', 'по', 'ос', 'ра', 'от']
 
@@ -73,7 +73,13 @@ def attack(cipher, RU_TOP_BG=RU_TOP_BG):
     return found
 
 
-cipher = open(os.path.join(DIR, "V3.txt"), encoding="utf-8").read().replace("\n", "").strip()
+cipher = open(os.path.join(DIR, "03.txt"), encoding="utf-8").read().replace("\n", "").strip()
 print("Топ-5 біграм шифртексту:", top_bigrams(cipher))
-for a, b, pt in attack(cipher):
+output_path = os.path.join(DIR, "decrypted.txt")
+results = attack(cipher)
+for a, b, pt in results:
     print(f"\nКЛЮЧ: a={a}, b={b}\n{pt[:300]}")
+if len(results)==1:
+    a, b, pt = results[0]
+    with open(output_path, "w", encoding="utf-8") as f:
+            f.write(pt)
